@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>plugins &#8212; Folium 0.5.0+126.gde2729f documentation</title>
+    <title>plugins &#8212; Folium 0.5.0+126.gb65e002 documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="modules.html" title="folium"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+126.gde2729f documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+126.gb65e002 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -549,31 +549,48 @@ dicts of <cite>{time: style_options_dict}</cite></li>
 
 <dl class="class">
 <dt id="folium.plugins.TimestampedGeoJson">
-<em class="property">class </em><code class="descclassname">folium.plugins.</code><code class="descname">TimestampedGeoJson</code><span class="sig-paren">(</span><em>data</em>, <em>transition_time=200</em>, <em>loop=True</em>, <em>auto_play=True</em>, <em>add_last_point=True</em>, <em>period='P1D'</em>, <em>min_speed=0.1</em>, <em>max_speed=10</em>, <em>loop_button=False</em>, <em>date_options='YYYY/MM/DD hh:mm:ss'</em>, <em>time_slider_drag_update=False</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.TimestampedGeoJson" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">folium.plugins.</code><code class="descname">TimestampedGeoJson</code><span class="sig-paren">(</span><em>data</em>, <em>transition_time=200</em>, <em>loop=True</em>, <em>auto_play=True</em>, <em>add_last_point=True</em>, <em>period='P1D'</em>, <em>min_speed=0.1</em>, <em>max_speed=10</em>, <em>loop_button=False</em>, <em>date_options='YYYY/MM/DD hh:mm:ss'</em>, <em>time_slider_drag_update=False</em>, <em>duration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.TimestampedGeoJson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
 <p>Creates a TimestampedGeoJson plugin from timestamped GeoJSONs to append
 into a map with Map.add_child.</p>
 <p>A geo-json is timestamped if:
-* it contains only features of types LineString, MultiPoint, MultiLineString and MultiPolygon.
-* each feature has a ‘times’ property with the same length as the coordinates array.
-* each element of each ‘times’ property is a timestamp in ms since epoch, or in ISO string.</p>
-<p>Eventually, you may have Point features with a ‘times’ property being an array of length 1.</p>
+* it contains only features of types LineString, MultiPoint, MultiLineString</p>
+<blockquote>
+<div>and MultiPolygon.</div></blockquote>
+<ul class="simple">
+<li>each feature has a ‘times’ property with the same length as the
+coordinates array.</li>
+<li>each element of each ‘times’ property is a timestamp in ms since epoch,
+or in ISO string.</li>
+</ul>
+<p>Eventually, you may have Point features with a ‘times’ property being an
+array of length 1.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> (<em>file</em><em>, </em><em>dict</em><em> or </em><em>str.</em>) – The timestamped geo-json data you want to plot.
-* If file, then data will be read in the file and fully embedded in Leaflet’s javascript.
-* If dict, then data will be converted to json and embedded in the javascript.
-* If str, then data will be passed to the javascript as-is.</li>
+<li><strong>data</strong> (<em>file</em><em>, </em><em>dict</em><em> or </em><em>str.</em>) – <p>The timestamped geo-json data you want to plot.
+* If file, then data will be read in the file and fully embedded in</p>
+<blockquote>
+<div>Leaflet’s javascript.</div></blockquote>
+<ul>
+<li>If dict, then data will be converted to json and embedded in the
+javascript.</li>
+<li>If str, then data will be passed to the javascript as-is.</li>
+</ul>
+</li>
 <li><strong>transition_time</strong> (<em>int</em><em>, </em><em>default 200.</em>) – The duration in ms of a transition from between timestamps.</li>
 <li><strong>loop</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the animation shall loop.</li>
 <li><strong>auto_play</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the animation shall start automatically at startup.</li>
 <li><strong>add_last_point</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether a point is added at the last valid coordinate of a LineString.</li>
 <li><strong>period</strong> (<em>str</em><em>, </em><em>default &quot;P1D&quot;</em>) – Used to construct the array of available times starting
 from the first available time. Format: ISO8601 Duration
-ex: ‘P1M’ -&gt; 1/month, ‘P1D’ -&gt; 1/day, ‘PT1H’ -&gt; 1/hour, and’PT1M’ -&gt; 1/minute</li>
+ex: ‘P1M’ 1/month, ‘P1D’ 1/day, ‘PT1H’ 1/hour, and ‘PT1M’ 1/minute</li>
+<li><strong>duration</strong> (<em>str</em><em>, </em><em>default None</em>) – Period of time which the features will be shown on the map after their
+time has passed. If None, all previous times will be shown.
+Format: ISO8601 Duration
+ex: ‘P1M’ 1/month, ‘P1D’ 1/day, ‘PT1H’ 1/hour, and ‘PT1M’ 1/minute</li>
 </ul>
 </td>
 </tr>
@@ -725,7 +742,7 @@ default ‘topleft’</li>
         <li class="right" >
           <a href="modules.html" title="folium"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+126.gde2729f documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+126.gb65e002 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
