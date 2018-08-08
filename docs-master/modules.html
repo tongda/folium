@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>folium &#8212; Folium 0.5.0+137.gbbf57a2 documentation</title>
+    <title>folium &#8212; Folium 0.5.0+137.g05f8e81 documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,7 +31,7 @@
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+137.gbbf57a2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+137.g05f8e81 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -485,6 +485,7 @@ popup text or Vincent visualization.</p>
 <li><strong>location</strong> (<em>tuple</em><em> or </em><em>list</em><em>, </em><em>default None</em>) – Latitude and Longitude of Marker (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Label for the Marker; either an escaped HTML string to initialize
 folium.Popup or a folium.Popup instance.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 <li><strong>icon</strong> (<em>Icon plugin</em>) – the Icon plugin to use to render the marker.</li>
 </ul>
 </td>
@@ -502,7 +503,7 @@ folium.Popup or a folium.Popup instance.</li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">45.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="s1">&#39;Portland, OR&#39;</span><span class="p">))</span>
 <span class="go"># If the popup label has characters that need to be escaped in HTML</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">45.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">],</span>
-<span class="go">           popoup=folium.Popup(&#39;Mom &amp; Pop Arrow Shop &gt;&gt;&#39;, parse_html=True))</span>
+<span class="go">           popup=folium.Popup(&#39;Mom &amp; Pop Arrow Shop &gt;&gt;&#39;, parse_html=True))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -535,6 +536,41 @@ folium.Popup or a folium.Popup instance.</li>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="folium.map.Tooltip">
+<em class="property">class </em><code class="descclassname">folium.map.</code><code class="descname">Tooltip</code><span class="sig-paren">(</span><em>text</em>, <em>style=None</em>, <em>sticky=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.map.Tooltip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
+<p>Create a tooltip that shows text when hovering over its parent object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>str</em>) – String to display as a tooltip on the object. If the argument is of a
+different type it will be converted to str.</li>
+<li><strong>style</strong> (<em>str</em><em>, </em><em>default None.</em>) – HTML inline style properties like font and colors. Will be applied to
+a div with the text in it.</li>
+<li><strong>sticky</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the tooltip should follow the mouse.</li>
+<li><strong>**kwargs</strong> (<em>Assorted.</em>) – These values will map directly to the Leaflet Options. More info
+available here: <a class="reference external" href="https://leafletjs.com/reference-1.2.0#tooltip">https://leafletjs.com/reference-1.2.0#tooltip</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="folium.map.Tooltip.parse_options">
+<code class="descname">parse_options</code><span class="sig-paren">(</span><em>kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.map.Tooltip.parse_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the provided kwargs and return options as json string.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="folium.map.Tooltip.valid_options">
+<code class="descname">valid_options</code><em class="property"> = {'attribution': (&lt;class 'str'&gt;,), 'className': (&lt;class 'str'&gt;,), 'direction': (&lt;class 'str'&gt;,), 'interactive': (&lt;class 'bool'&gt;,), 'offset': (&lt;class 'tuple'&gt;,), 'opacity': (&lt;class 'float'&gt;, &lt;class 'int'&gt;), 'pane': (&lt;class 'str'&gt;,), 'permanent': (&lt;class 'bool'&gt;,), 'sticky': (&lt;class 'bool'&gt;,)}</em><a class="headerlink" href="#folium.map.Tooltip.valid_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-folium.vector_layers">
 <span id="vector-layers"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Layers</span></code><a class="headerlink" href="#module-folium.vector_layers" title="Permalink to this headline">¶</a></h1>
@@ -555,7 +591,7 @@ folium.Popup or a folium.Popup instance.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>locations</strong> (<em>list of points</em><em> (</em><em>latitude</em><em>, </em><em>longitude</em><em>)</em>) – Latitude and Longitude of line (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
-<li><strong>tooltip</strong> (<em>string</em><em> , </em><em>default None</em>) – Input text or visualization for object displayed when hovering.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 <li><strong>radius</strong> (<em>float</em>) – Radius of the circle, in meters.</li>
 </ul>
 </td>
@@ -578,7 +614,7 @@ folium.Popup or a folium.Popup instance.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>locations</strong> (<em>list of points</em><em> (</em><em>latitude</em><em>, </em><em>longitude</em><em>)</em>) – Latitude and Longitude of line (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
-<li><strong>tooltip</strong> (<em>string</em><em> , </em><em>default None</em>) – Input text or visualization for object displayed when hovering.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 <li><strong>radius</strong> (<em>float</em><em>, </em><em>default 10</em>) – Radius of the circle marker, in pixels.</li>
 </ul>
 </td>
@@ -601,7 +637,7 @@ folium.Popup or a folium.Popup instance.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>locations</strong> (<em>list of points</em><em> (</em><em>latitude</em><em>, </em><em>longitude</em><em>)</em>) – Latitude and Longitude of line (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>str</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
-<li><strong>tooltip</strong> (<em>str</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when hovering.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 <li><strong>smooth_factor</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – How much to simplify the polyline on each zoom level.
 More means better performance and smoother look,
 and less means more accurate representation.</li>
@@ -628,7 +664,7 @@ and less means more accurate representation.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>locations</strong> (<em>list of points</em><em> (</em><em>latitude</em><em>, </em><em>longitude</em><em>)</em>) – Latitude and Longitude of line (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
-<li><strong>tooltip</strong> (<em>string</em><em> , </em><em>default None</em>) – Input text or visualization for object displayed when hovering.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 </ul>
 </td>
 </tr>
@@ -651,7 +687,7 @@ and less means more accurate representation.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>locations</strong> (<em>list of points</em><em> (</em><em>latitude</em><em>, </em><em>longitude</em><em>)</em>) – Latitude and Longitude of line (Northing, Easting)</li>
 <li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
-<li><strong>tooltip</strong> (<em>string</em><em> , </em><em>default None</em>) – Input text or visualization for object displayed when hovering.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
 </ul>
 </td>
 </tr>
@@ -1008,6 +1044,8 @@ in the JavaScript.
 <li><strong>smooth_factor</strong> (<em>float</em><em>, </em><em>default None</em>) – How much to simplify the polyline on each zoom level. More means
 better performance and smoother look, and less means more accurate
 representation. Leaflet defaults to 1.0.</li>
+<li><strong>tooltip</strong> (<a class="reference internal" href="#folium.features.GeoJsonTooltip" title="folium.features.GeoJsonTooltip"><em>GeoJsonTooltip</em></a><em>, </em><a class="reference internal" href="#folium.map.Tooltip" title="folium.map.Tooltip"><em>Tooltip</em></a><em> or </em><em>str</em><em>, </em><em>default None</em>) – Display a text when hovering over the object. Can utilize the data,
+see folium.GeoJsonTooltip for info on how to do that.</li>
 </ul>
 </td>
 </tr>
@@ -1041,6 +1079,55 @@ returns a corresponding JSON output.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="folium.features.GeoJsonTooltip">
+<em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">GeoJsonTooltip</code><span class="sig-paren">(</span><em>fields</em>, <em>aliases=None</em>, <em>labels=True</em>, <em>localize=False</em>, <em>style=None</em>, <em>sticky=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.GeoJsonTooltip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#folium.map.Tooltip" title="folium.map.Tooltip"><code class="xref py py-class docutils literal notranslate"><span class="pre">folium.map.Tooltip</span></code></a></p>
+<p>Create a tooltip that uses data from either geojson or topojson.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fields</strong> (<em>list</em><em> or </em><em>tuple.</em>) – Labels of GeoJson/TopoJson ‘properties’ or GeoPandas GeoDataFrame
+columns you’d like to display.</li>
+<li><strong>aliases</strong> (<em>list/tuple of strings</em><em>, </em><em>same length/order as fields</em><em>, </em><em>default None.</em>) – Optional aliases you’d like to display in the tooltip as field name
+instead of the keys of <cite>fields</cite>.</li>
+<li><strong>labels</strong> (<em>bool</em><em>, </em><em>default True.</em>) – Set to False to disable displaying the field names or aliases.</li>
+<li><strong>localize</strong> (<em>bool</em><em>, </em><em>default False.</em>) – This will use JavaScript’s .toLocaleString() to format ‘clean’ values
+as strings for the user’s location; i.e. 1,000,000.00 comma separators,
+float truncation, etc.
+<a href="#id1"><span class="problematic" id="id2">*</span></a>Available for most of JavaScript’s primitive types (any data you’ll
+serve into the template).</li>
+<li><strong>style</strong> (<em>str</em><em>, </em><em>default None.</em>) – HTML inline style properties like font and colors. Will be applied to
+a div with the text in it.</li>
+<li><strong>sticky</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the tooltip should follow the mouse.</li>
+<li><strong>**kwargs</strong> (<em>Assorted.</em>) – These values will map directly to the Leaflet Options. More info
+available here: <a class="reference external" href="https://leafletjs.com/reference-1.2.0#tooltip">https://leafletjs.com/reference-1.2.0#tooltip</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p># Provide fields and aliases, with Style.
+&gt;&gt;&gt; Tooltip(
+&gt;&gt;&gt;     fields=[‘CNTY_NM’, ‘census-pop-2015’, ‘census-md-income-2015’],
+&gt;&gt;&gt;     aliases=[‘County’, ‘2015 Census Population’, ‘2015 Median Income’],
+&gt;&gt;&gt;     localize=True,
+&gt;&gt;&gt;     style=(‘background-color: grey; color: white; font-family:’
+&gt;&gt;&gt;            ‘courier new; font-size: 24px; padding: 10px;’)
+&gt;&gt;&gt; )
+# Provide fields, with labels off and fixed tooltip positions.
+&gt;&gt;&gt; Tooltip(fields=(‘CNTY_NM’,), labels=False, sticky=False)</p>
+<dl class="method">
+<dt id="folium.features.GeoJsonTooltip.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.GeoJsonTooltip.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the HTML representation of the element.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="folium.features.LatLngPopup">
 <em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">LatLngPopup</code><a class="headerlink" href="#folium.features.LatLngPopup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
@@ -1050,7 +1137,7 @@ a popup is shown that displays the latitude and longitude of the pointer.</p>
 
 <dl class="class">
 <dt id="folium.features.RegularPolygonMarker">
-<em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">RegularPolygonMarker</code><span class="sig-paren">(</span><em>location</em>, <em>color='black'</em>, <em>opacity=1</em>, <em>weight=2</em>, <em>fill_color='blue'</em>, <em>fill_opacity=1</em>, <em>number_of_sides=4</em>, <em>rotation=0</em>, <em>radius=15</em>, <em>popup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.RegularPolygonMarker" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">RegularPolygonMarker</code><span class="sig-paren">(</span><em>location</em>, <em>color='black'</em>, <em>opacity=1</em>, <em>weight=2</em>, <em>fill_color='blue'</em>, <em>fill_opacity=1</em>, <em>number_of_sides=4</em>, <em>rotation=0</em>, <em>radius=15</em>, <em>popup=None</em>, <em>tooltip=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.RegularPolygonMarker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#folium.map.Marker" title="folium.map.Marker"><code class="xref py py-class docutils literal notranslate"><span class="pre">folium.map.Marker</span></code></a></p>
 <p>Custom markers using the Leaflet Data Vis Framework.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1067,15 +1154,14 @@ a popup is shown that displays the latitude and longitude of the pointer.</p>
 <li><strong>number_of_sides</strong> (<em>int</em><em>, </em><em>default 4</em>) – Number of polygon sides</li>
 <li><strong>rotation</strong> (<em>int</em><em>, </em><em>default 0</em>) – Rotation angle in degrees</li>
 <li><strong>radius</strong> (<em>int</em><em>, </em><em>default 15</em>) – Marker radius, in pixels</li>
-<li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object. Can pass either text,
-or a folium.Popup object.
-If None, no popup will be displayed.</li>
+<li><strong>popup</strong> (<em>string</em><em> or </em><em>folium.Popup</em><em>, </em><em>default None</em>) – Input text or visualization for object displayed when clicking.</li>
+<li><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>default None</em>) – Display a text when hovering over the object.</li>
+<li><strong>https</strong> (<em>//humangeo.github.io/leaflet-dvf/</em>) – </li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p><a class="reference external" href="https://humangeo.github.io/leaflet-dvf/">https://humangeo.github.io/leaflet-dvf/</a></p>
 <dl class="method">
 <dt id="folium.features.RegularPolygonMarker.render">
 <code class="descname">render</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.RegularPolygonMarker.render" title="Permalink to this definition">¶</a></dt>
@@ -1110,6 +1196,8 @@ Ex: ‘objects.myobject’.</li>
 <li><strong>smooth_factor</strong> (<em>float</em><em>, </em><em>default None</em>) – How much to simplify the polyline on each zoom level. More means
 better performance and smoother look, and less means more accurate
 representation. Leaflet defaults to 1.0.</li>
+<li><strong>tooltip</strong> (<a class="reference internal" href="#folium.features.GeoJsonTooltip" title="folium.features.GeoJsonTooltip"><em>GeoJsonTooltip</em></a><em>, </em><a class="reference internal" href="#folium.map.Tooltip" title="folium.map.Tooltip"><em>Tooltip</em></a><em> or </em><em>str</em><em>, </em><em>default None</em>) – Display a text when hovering over the object. Can utilize the data,
+see folium.GeoJsonTooltip for info on how to do that.</li>
 </ul>
 </td>
 </tr>
@@ -1254,7 +1342,7 @@ Ex: ‘relative’, ‘absolute’</li>
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+137.gbbf57a2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.5.0+137.g05f8e81 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
