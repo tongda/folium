@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>plugins &#8212; Folium 0.6.0+13.g057fdbe documentation</title>
+    <title>plugins &#8212; Folium 0.6.0+14.g1ea034a documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -27,7 +27,7 @@
         <li class="right" >
           <a href="modules.html" title="folium"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+13.g057fdbe documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+14.g1ea034a documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -465,6 +465,47 @@ markers colors and sizes.</li>
 </dd></dl>
 
 <dl class="class">
+<dt id="folium.plugins.MousePosition">
+<em class="property">class </em><code class="descclassname">folium.plugins.</code><code class="descname">MousePosition</code><span class="sig-paren">(</span><em>position='bottomright'</em>, <em>separator=' : '</em>, <em>empty_string='Unavailable'</em>, <em>lng_first=False</em>, <em>num_digits=5</em>, <em>prefix=''</em>, <em>lat_formatter=None</em>, <em>lng_formatter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.MousePosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
+<p>Add a field that shows the coordinates of the mouse position.</p>
+<p>Uses the Leaflet plugin by Ardhi Lukianto under MIT license.
+<a class="reference external" href="https://github.com/ardhi/Leaflet.MousePosition">https://github.com/ardhi/Leaflet.MousePosition</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>position</strong> (<em>str</em><em>, </em><em>default 'bottomright'</em>) – The standard Control position parameter for the widget.</li>
+<li><strong>separator</strong> (<em>str</em><em>, </em><em>default ' : '</em>) – Character used to separate latitude and longitude values.</li>
+<li><strong>empty_string</strong> (<em>str</em><em>, </em><em>default 'Unavailable'</em>) – Initial text to display.</li>
+<li><strong>lng_first</strong> (<em>bool</em><em>, </em><em>default False</em>) – Whether to put the longitude first or not.
+Set as True to display longitude before latitude.</li>
+<li><strong>num_digits</strong> (<em>int</em><em>, </em><em>default '5'</em>) – Number of decimal places included in the displayed
+longitude and latitude decimal degree values.</li>
+<li><strong>prefix</strong> (<em>str</em><em>, </em><em>default ''</em>) – A string to be prepended to the coordinates.</li>
+<li><strong>lat_formatter</strong> (<em>str</em><em>, </em><em>default None</em>) – Custom Javascript function to format the latitude value.</li>
+<li><strong>lng_formatter</strong> (<em>str</em><em>, </em><em>default None</em>) – Custom Javascript function to format the longitude value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fmtr</span> <span class="o">=</span> <span class="s2">&quot;function(num) {return L.Util.formatNum(num, 3) + &#39; º &#39;;};&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MousePosition</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; | &#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;Mouse:&quot;</span><span class="p">,</span>
+<span class="gp">... </span>              <span class="n">lat_formatter</span><span class="o">=</span><span class="n">fmtr</span><span class="p">,</span> <span class="n">lng_formatter</span><span class="o">=</span><span class="n">fmtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="folium.plugins.MousePosition.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.MousePosition.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the HTML representation of the element.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="folium.plugins.PolyLineTextPath">
 <em class="property">class </em><code class="descclassname">folium.plugins.</code><code class="descname">PolyLineTextPath</code><span class="sig-paren">(</span><em>polyline</em>, <em>text</em>, <em>repeat=False</em>, <em>center=False</em>, <em>below=False</em>, <em>offset=0</em>, <em>orientation=0</em>, <em>attributes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.PolyLineTextPath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
@@ -745,7 +786,7 @@ default ‘topleft’</li>
         <li class="right" >
           <a href="modules.html" title="folium"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+13.g057fdbe documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+14.g1ea034a documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
