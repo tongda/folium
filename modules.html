@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>folium &#8212; Folium 0.6.0+11.g71ab988 documentation</title>
+    <title>folium &#8212; Folium 0.6.0+12.gc64c659 documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,7 +31,7 @@
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+11.g71ab988 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+12.gc64c659 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -795,7 +795,7 @@ object.</li>
 
 <dl class="class">
 <dt id="folium.raster_layers.TileLayer">
-<em class="property">class </em><code class="descclassname">folium.raster_layers.</code><code class="descname">TileLayer</code><span class="sig-paren">(</span><em>tiles='OpenStreetMap'</em>, <em>min_zoom=0</em>, <em>max_zoom=18</em>, <em>max_native_zoom=None</em>, <em>attr=None</em>, <em>API_key=None</em>, <em>detect_retina=False</em>, <em>name=None</em>, <em>overlay=False</em>, <em>control=True</em>, <em>show=True</em>, <em>no_wrap=False</em>, <em>subdomains='abc'</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.raster_layers.TileLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">folium.raster_layers.</code><code class="descname">TileLayer</code><span class="sig-paren">(</span><em>tiles='OpenStreetMap'</em>, <em>min_zoom=0</em>, <em>max_zoom=18</em>, <em>max_native_zoom=None</em>, <em>attr=None</em>, <em>API_key=None</em>, <em>detect_retina=False</em>, <em>name=None</em>, <em>overlay=False</em>, <em>control=True</em>, <em>show=True</em>, <em>no_wrap=False</em>, <em>subdomains='abc'</em>, <em>tms=False</em>, <em>opacity=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.raster_layers.TileLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#folium.map.Layer" title="folium.map.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">folium.map.Layer</span></code></a></p>
 <p>Create a tile layer to append on a Map.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -833,6 +833,11 @@ of one to utilize the high resolution.</li>
 <li><strong>control</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the Layer will be included in LayerControls.</li>
 <li><strong>show</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the layer will be shown on opening (only for overlays).</li>
 <li><strong>subdomains</strong> (<em>list of strings</em><em>, </em><em>default</em><em> [</em><em>'abc'</em><em>]</em>) – Subdomains of the tile service.</li>
+<li><strong>tms</strong> (<em>bool</em><em>, </em><em>default False</em>) – If true, inverses Y axis numbering for tiles (turn this on for TMS
+services).</li>
+<li><strong>opacity</strong> (<em>float</em><em>, </em><em>default 1</em>) – Sets the opacity for the layer.</li>
+<li><strong>**kwargs</strong> (<em>additional keyword arguments</em>) – Other keyword arguments are passed as options to the Leaflet tileLayer
+object.</li>
 </ul>
 </td>
 </tr>
@@ -1342,12 +1347,12 @@ Ex: ‘relative’, ‘absolute’</li>
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+11.g71ab988 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+12.gc64c659 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Rob Story.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.5.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>
