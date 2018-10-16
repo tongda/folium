@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>plugins &#8212; Folium 0.6.0+30.g9f648a2 documentation</title>
+    <title>plugins &#8212; Folium 0.6.0+31.g584ea34 documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -28,7 +28,7 @@
         <li class="right" >
           <a href="modules.html" title="folium"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+30.g9f648a2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+31.g584ea34 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -766,6 +766,61 @@ default ‘topleft’</li>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="folium.plugins.MiniMap">
+<em class="property">class </em><code class="descclassname">folium.plugins.</code><code class="descname">MiniMap</code><span class="sig-paren">(</span><em>tile_layer=None</em>, <em>position='bottomright'</em>, <em>width=150</em>, <em>height=150</em>, <em>collapsed_width=25</em>, <em>collapsed_height=25</em>, <em>zoom_level_offset=-5</em>, <em>zoom_level_fixed=None</em>, <em>center_fixed=False</em>, <em>zoom_animation=False</em>, <em>toggle_display=False</em>, <em>auto_toggle_display=False</em>, <em>minimized=False</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.MiniMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
+<p>Add a minimap (locator) to an existing map.</p>
+<p>Uses the Leaflet plugin by Norkart under BSD 2-Clause “Simplified” License.
+<a class="reference external" href="https://github.com/Norkart/Leaflet-MiniMap">https://github.com/Norkart/Leaflet-MiniMap</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tile_layer</strong> (<em>folium TileLayer object</em><em> or </em><em>str</em><em>, </em><em>default None</em>) – Provide a folium TileLayer object or the wanted tiles as string.
+If not provided it will use the default of ‘TileLayer’, currently
+OpenStreetMap.</li>
+<li><strong>position</strong> (<em>str</em><em>, </em><em>default 'bottomright'</em>) – The standard Control position parameter for the widget.</li>
+<li><strong>width</strong> (<em>int</em><em>, </em><em>default 150</em>) – The width of the minimap in pixels.</li>
+<li><strong>height</strong> (<em>int</em><em>, </em><em>default 150</em>) – The height of the minimap in pixels.</li>
+<li><strong>collapsed_width</strong> (<em>int</em><em>, </em><em>default 25</em>) – The width of the toggle marker and the minimap when collapsed in pixels.</li>
+<li><strong>collapsed_height</strong> (<em>int</em><em>, </em><em>default 25</em>) – The height of the toggle marker and the minimap when collapsed</li>
+<li><strong>zoom_level_offset</strong> (<em>int</em><em>, </em><em>default -5</em>) – The offset applied to the zoom in the minimap compared to the zoom of
+the main map. Can be positive or negative.</li>
+<li><strong>zoom_level_fixed</strong> (<em>int</em><em>, </em><em>default None</em>) – Overrides the offset to apply a fixed zoom level to the minimap
+regardless of the main map zoom.
+Set it to any valid zoom level, if unset zoom_level_offset is used
+instead.</li>
+<li><strong>center_fixed</strong> (<em>bool</em><em>, </em><em>default False</em>) – Applies a fixed position to the minimap regardless of the main map’s
+view / position. Prevents panning the minimap, but does allow zooming
+(both in the minimap and the main map).
+If the minimap is zoomed, it will always zoom around the centerFixed
+point. You can pass in a LatLng-equivalent object.</li>
+<li><strong>zoom_animation</strong> (<em>bool</em><em>, </em><em>default False</em>) – Sets whether the minimap should have an animated zoom.
+(Will cause it to lag a bit after the movement of the main map.)</li>
+<li><strong>toggle_display</strong> (<em>bool</em><em>, </em><em>default False</em>) – Sets whether the minimap should have a button to minimise it.</li>
+<li><strong>auto_toggle_display</strong> (<em>bool</em><em>, </em><em>default False</em>) – Sets whether the minimap should hide automatically
+if the parent map bounds does not fit within the minimap bounds.
+Especially useful when ‘zoomLevelFixed’ is set.</li>
+<li><strong>minimized</strong> (<em>bool</em><em>, </em><em>default False</em>) – Sets whether the minimap should start in a minimized position.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MiniMap</span><span class="p">(</span><span class="n">tile_layer</span><span class="o">=</span><span class="s1">&#39;Stamen WaterColor&#39;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomleft&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="folium.plugins.MiniMap.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.plugins.MiniMap.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the HTML representation of the element.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -787,7 +842,7 @@ default ‘topleft’</li>
         <li class="right" >
           <a href="modules.html" title="folium"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+30.g9f648a2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+31.g584ea34 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
