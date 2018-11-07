@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>folium &#8212; Folium 0.6.0+47.g3ecbc54 documentation</title>
+    <title>folium &#8212; Folium 0.6.0+61.g5d029e7 documentation</title>
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+47.g3ecbc54 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+61.g5d029e7 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -187,91 +187,9 @@ rare environments) even if they’re supported.</li>
 
 <dl class="method">
 <dt id="folium.folium.Map.choropleth">
-<code class="descname">choropleth</code><span class="sig-paren">(</span><em>geo_data</em>, <em>data=None</em>, <em>columns=None</em>, <em>key_on=None</em>, <em>bins=6</em>, <em>fill_color='blue'</em>, <em>nan_fill_color='black'</em>, <em>fill_opacity=0.6</em>, <em>nan_fill_opacity=None</em>, <em>line_color='black'</em>, <em>line_weight=1</em>, <em>line_opacity=1</em>, <em>name=None</em>, <em>legend_name=''</em>, <em>topojson=None</em>, <em>reset=False</em>, <em>smooth_factor=None</em>, <em>highlight=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.folium.Map.choropleth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply a GeoJSON overlay to the map.</p>
-<p>Plot a GeoJSON overlay on the base map. There is no requirement
-to bind data (passing just a GeoJSON plots a single-color overlay),
-but there is a data binding option to map your columnar data to
-different feature objects with a color scale.</p>
-<p>If data is passed as a Pandas DataFrame, the “columns” and “key-on”
-keywords must be included, the first to indicate which DataFrame
-columns to use, the second to indicate the layer in the GeoJSON
-on which to key the data. The ‘columns’ keyword does not need to be
-passed for a Pandas series.</p>
-<p>Colors are generated from color brewer (<a class="reference external" href="http://colorbrewer2.org/">http://colorbrewer2.org/</a>)
-sequential palettes. By default, linear binning is used between
-the min and the max of the values. Custom binning can be achieved
-with the <cite>bins</cite> parameter.</p>
-<p>TopoJSONs can be passed as “geo_data”, but the “topojson” keyword must
-also be passed with the reference to the topojson objects to convert.
-See the topojson.feature method in the TopoJSON API reference:
-<a class="reference external" href="https://github.com/topojson/topojson/wiki/API-Reference">https://github.com/topojson/topojson/wiki/API-Reference</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>geo_data</strong> (<em>string/object</em>) – URL, file path, or data (json, dict, geopandas, etc) to your GeoJSON
-geometries</li>
-<li><strong>data</strong> (<em>Pandas DataFrame</em><em> or </em><em>Series</em><em>, </em><em>default None</em>) – Data to bind to the GeoJSON.</li>
-<li><strong>columns</strong> (<em>dict</em><em> or </em><em>tuple</em><em>, </em><em>default None</em>) – If the data is a Pandas DataFrame, the columns of data to be bound.
-Must pass column 1 as the key, and column 2 the values.</li>
-<li><strong>key_on</strong> (<em>string</em><em>, </em><em>default None</em>) – Variable in the <cite>geo_data</cite> GeoJSON file to bind the data to. Must
-start with ‘feature’ and be in JavaScript objection notation.
-Ex: ‘feature.id’ or ‘feature.properties.statename’.</li>
-<li><strong>bins</strong> (<em>int</em><em> or </em><em>sequence of scalars</em><em> or </em><em>str</em><em>, </em><em>default 6</em>) – If <cite>bins</cite> is an int, it defines the number of equal-width
-bins between the min and the max of the values.
-If <cite>bins</cite> is a sequence, it directly defines the bin edges.
-For more information on this parameter, have a look at
-numpy.histogram function.</li>
-<li><strong>fill_color</strong> (<em>string</em><em>, </em><em>default 'blue'</em>) – Area fill color. Can pass a hex code, color name, or if you are
-binding data, one of the following color brewer palettes:
-‘BuGn’, ‘BuPu’, ‘GnBu’, ‘OrRd’, ‘PuBu’, ‘PuBuGn’, ‘PuRd’, ‘RdPu’,
-‘YlGn’, ‘YlGnBu’, ‘YlOrBr’, and ‘YlOrRd’.</li>
-<li><strong>nan_fill_color</strong> (<em>string</em><em>, </em><em>default 'black'</em>) – Area fill color for nan or missing values.
-Can pass a hex code, color name.</li>
-<li><strong>fill_opacity</strong> (<em>float</em><em>, </em><em>default 0.6</em>) – Area fill opacity, range 0-1.</li>
-<li><strong>nan_fill_opacity</strong> (<em>float</em><em>, </em><em>default fill_opacity</em>) – Area fill opacity for nan or missing values, range 0-1.</li>
-<li><strong>line_color</strong> (<em>string</em><em>, </em><em>default 'black'</em>) – GeoJSON geopath line color.</li>
-<li><strong>line_weight</strong> (<em>int</em><em>, </em><em>default 1</em>) – GeoJSON geopath line weight.</li>
-<li><strong>line_opacity</strong> (<em>float</em><em>, </em><em>default 1</em>) – GeoJSON geopath line opacity, range 0-1.</li>
-<li><strong>legend_name</strong> (<em>string</em><em>, </em><em>default empty string</em>) – Title for data legend.</li>
-<li><strong>topojson</strong> (<em>string</em><em>, </em><em>default None</em>) – If using a TopoJSON, passing “objects.yourfeature” to the topojson
-keyword argument will enable conversion to GeoJSON.</li>
-<li><strong>reset</strong> (<em>boolean</em><em>, </em><em>default False</em>) – Remove all current geoJSON layers, start with new layer</li>
-<li><strong>smooth_factor</strong> (<em>float</em><em>, </em><em>default None</em>) – How much to simplify the polyline on each zoom level. More means
-better performance and smoother look, and less means more accurate
-representation. Leaflet defaults to 1.0.</li>
-<li><strong>highlight</strong> (<em>boolean</em><em>, </em><em>default False</em>) – Enable highlight functionality when hovering over a GeoJSON area.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">GeoJSON data layer in obj.template_vars</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;us-states.json&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">line_weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;geo.json&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Data 2&#39;</span><span class="p">],</span>
-<span class="gp">... </span>             <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.properties.myvalue&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;PuBu&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;countries.json&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">topojson</span><span class="o">=</span><span class="s1">&#39;objects.countries&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;geo.json&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Data 2&#39;</span><span class="p">],</span>
-<span class="gp">... </span>             <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.properties.myvalue&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;PuBu&#39;</span><span class="p">,</span>
-<span class="gp">... </span>             <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
-<span class="gp">... </span>             <span class="n">highlight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
+<code class="descname">choropleth</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.folium.Map.choropleth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the Choropleth class with the same arguments.</p>
+<p>This method may be deleted after a year from now (Nov 2018).</p>
 </dd></dl>
 
 <dl class="method">
@@ -449,6 +367,8 @@ LayerControls.</p>
 <em class="property">class </em><code class="descclassname">folium.map.</code><code class="descname">LayerControl</code><span class="sig-paren">(</span><em>position='topright'</em>, <em>collapsed=True</em>, <em>autoZIndex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.map.LayerControl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
 <p>Creates a LayerControl object to be added on a folium map.</p>
+<p>This object should be added to a Map object. Only Layer children
+of Map are included in the layer control.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -915,6 +835,105 @@ the WMS request.</li>
 <span id="extra-features"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extra</span> <span class="pre">Features</span></code><a class="headerlink" href="#module-folium.features" title="Permalink to this headline">¶</a></h1>
 <p>Leaflet GeoJson and miscellaneous features.</p>
 <dl class="class">
+<dt id="folium.features.Choropleth">
+<em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">Choropleth</code><span class="sig-paren">(</span><em>geo_data</em>, <em>data=None</em>, <em>columns=None</em>, <em>key_on=None</em>, <em>bins=6</em>, <em>fill_color='blue'</em>, <em>nan_fill_color='black'</em>, <em>fill_opacity=0.6</em>, <em>nan_fill_opacity=None</em>, <em>line_color='black'</em>, <em>line_weight=1</em>, <em>line_opacity=1</em>, <em>name=None</em>, <em>legend_name=''</em>, <em>overlay=True</em>, <em>control=True</em>, <em>show=True</em>, <em>topojson=None</em>, <em>smooth_factor=None</em>, <em>highlight=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.Choropleth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#folium.map.FeatureGroup" title="folium.map.FeatureGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">folium.map.FeatureGroup</span></code></a></p>
+<p>Apply a GeoJSON overlay to the map.</p>
+<p>Plot a GeoJSON overlay on the base map. There is no requirement
+to bind data (passing just a GeoJSON plots a single-color overlay),
+but there is a data binding option to map your columnar data to
+different feature objects with a color scale.</p>
+<p>If data is passed as a Pandas DataFrame, the “columns” and “key-on”
+keywords must be included, the first to indicate which DataFrame
+columns to use, the second to indicate the layer in the GeoJSON
+on which to key the data. The ‘columns’ keyword does not need to be
+passed for a Pandas series.</p>
+<p>Colors are generated from color brewer (<a class="reference external" href="http://colorbrewer2.org/">http://colorbrewer2.org/</a>)
+sequential palettes. By default, linear binning is used between
+the min and the max of the values. Custom binning can be achieved
+with the <cite>bins</cite> parameter.</p>
+<p>TopoJSONs can be passed as “geo_data”, but the “topojson” keyword must
+also be passed with the reference to the topojson objects to convert.
+See the topojson.feature method in the TopoJSON API reference:
+<a class="reference external" href="https://github.com/topojson/topojson/wiki/API-Reference">https://github.com/topojson/topojson/wiki/API-Reference</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>geo_data</strong> (<em>string/object</em>) – URL, file path, or data (json, dict, geopandas, etc) to your GeoJSON
+geometries</li>
+<li><strong>data</strong> (<em>Pandas DataFrame</em><em> or </em><em>Series</em><em>, </em><em>default None</em>) – Data to bind to the GeoJSON.</li>
+<li><strong>columns</strong> (<em>dict</em><em> or </em><em>tuple</em><em>, </em><em>default None</em>) – If the data is a Pandas DataFrame, the columns of data to be bound.
+Must pass column 1 as the key, and column 2 the values.</li>
+<li><strong>key_on</strong> (<em>string</em><em>, </em><em>default None</em>) – Variable in the <cite>geo_data</cite> GeoJSON file to bind the data to. Must
+start with ‘feature’ and be in JavaScript objection notation.
+Ex: ‘feature.id’ or ‘feature.properties.statename’.</li>
+<li><strong>bins</strong> (<em>int</em><em> or </em><em>sequence of scalars</em><em> or </em><em>str</em><em>, </em><em>default 6</em>) – If <cite>bins</cite> is an int, it defines the number of equal-width
+bins between the min and the max of the values.
+If <cite>bins</cite> is a sequence, it directly defines the bin edges.
+For more information on this parameter, have a look at
+numpy.histogram function.</li>
+<li><strong>fill_color</strong> (<em>string</em><em>, </em><em>default 'blue'</em>) – Area fill color. Can pass a hex code, color name, or if you are
+binding data, one of the following color brewer palettes:
+‘BuGn’, ‘BuPu’, ‘GnBu’, ‘OrRd’, ‘PuBu’, ‘PuBuGn’, ‘PuRd’, ‘RdPu’,
+‘YlGn’, ‘YlGnBu’, ‘YlOrBr’, and ‘YlOrRd’.</li>
+<li><strong>nan_fill_color</strong> (<em>string</em><em>, </em><em>default 'black'</em>) – Area fill color for nan or missing values.
+Can pass a hex code, color name.</li>
+<li><strong>fill_opacity</strong> (<em>float</em><em>, </em><em>default 0.6</em>) – Area fill opacity, range 0-1.</li>
+<li><strong>nan_fill_opacity</strong> (<em>float</em><em>, </em><em>default fill_opacity</em>) – Area fill opacity for nan or missing values, range 0-1.</li>
+<li><strong>line_color</strong> (<em>string</em><em>, </em><em>default 'black'</em>) – GeoJSON geopath line color.</li>
+<li><strong>line_weight</strong> (<em>int</em><em>, </em><em>default 1</em>) – GeoJSON geopath line weight.</li>
+<li><strong>line_opacity</strong> (<em>float</em><em>, </em><em>default 1</em>) – GeoJSON geopath line opacity, range 0-1.</li>
+<li><strong>legend_name</strong> (<em>string</em><em>, </em><em>default empty string</em>) – Title for data legend.</li>
+<li><strong>topojson</strong> (<em>string</em><em>, </em><em>default None</em>) – If using a TopoJSON, passing “objects.yourfeature” to the topojson
+keyword argument will enable conversion to GeoJSON.</li>
+<li><strong>smooth_factor</strong> (<em>float</em><em>, </em><em>default None</em>) – How much to simplify the polyline on each zoom level. More means
+better performance and smoother look, and less means more accurate
+representation. Leaflet defaults to 1.0.</li>
+<li><strong>highlight</strong> (<em>boolean</em><em>, </em><em>default False</em>) – Enable highlight functionality when hovering over a GeoJSON area.</li>
+<li><strong>name</strong> (<em>string</em><em>, </em><em>optional</em>) – The name of the layer, as it will appear in LayerControls</li>
+<li><strong>overlay</strong> (<em>bool</em><em>, </em><em>default False</em>) – Adds the layer as an optional overlay (True) or the base layer (False).</li>
+<li><strong>control</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the Layer will be included in LayerControls.</li>
+<li><strong>show</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the layer will be shown on opening (only for overlays).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">GeoJSON data layer in obj.template_vars</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;us-states.json&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">line_weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;geo.json&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Data 2&#39;</span><span class="p">],</span>
+<span class="gp">... </span>           <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.properties.myvalue&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;PuBu&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;countries.json&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">topojson</span><span class="o">=</span><span class="s1">&#39;objects.countries&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Choropleth</span><span class="p">(</span><span class="n">geo_data</span><span class="o">=</span><span class="s1">&#39;geo.json&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Data 2&#39;</span><span class="p">],</span>
+<span class="gp">... </span>           <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.properties.myvalue&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;PuBu&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
+<span class="gp">... </span>           <span class="n">highlight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="folium.features.Choropleth.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.Choropleth.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the GeoJson/TopoJson and color scale objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="folium.features.ClickForMarker">
 <em class="property">class </em><code class="descclassname">folium.features.</code><code class="descname">ClickForMarker</code><span class="sig-paren">(</span><em>popup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#folium.features.ClickForMarker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">branca.element.MacroElement</span></code></p>
@@ -1352,7 +1371,7 @@ Ex: ‘relative’, ‘absolute’</li>
         <li class="right" >
           <a href="quickstart.html" title="Quickstart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+47.g3ecbc54 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Folium 0.6.0+61.g5d029e7 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
