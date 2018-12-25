@@ -909,7 +909,7 @@ class Choropleth(FeatureGroup):
                  line_weight=1, line_opacity=1, name=None, legend_name='',
                  overlay=True, control=True, show=True,
                  topojson=None, smooth_factor=None, highlight=None,
-                 **kwargs):
+                 tooltip=None, **kwargs):
         super(Choropleth, self).__init__(name=name, overlay=overlay,
                                          control=control, show=show)
         self._name = 'Choropleth'
@@ -1022,7 +1022,8 @@ class Choropleth(FeatureGroup):
                 geo_data,
                 style_function=style_function,
                 smooth_factor=smooth_factor,
-                highlight_function=highlight_function if highlight else None)
+                highlight_function=highlight_function if highlight else None,
+                tooltip=tooltip)
 
         self.add_child(self.geojson)
         if self.color_scale:
